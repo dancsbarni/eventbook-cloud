@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EventBook Cloud — Találd meg a következő élményed</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark eb-nav sticky-top">
+  <div class="container"><a class="navbar-brand fw-bold" href="/">eventbook<span class="brand-dot">.</span></a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#events">Rendezvények</a></li>
+        <li class="nav-item" id="my-tickets-nav" hidden><a class="nav-link" href="my-tickets.html">Jegyeim</a></li>
+        <li class="nav-item" id="admin-nav" hidden><a class="nav-link" href="admin.html">Admin</a></li>
+        <li class="nav-item" id="auth-nav"><a class="btn btn-outline-light btn-sm" href="login.html">Belépés</a></li>
+        <li class="nav-item" id="logout-nav" hidden><button class="btn btn-light btn-sm" onclick="logout()">Kilépés</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="container py-5">
+    <div class="row align-items-center g-4 py-lg-5">
+      <div class="col-lg-7">
+        <span class="eyebrow">ÉLMÉNYEK. EGY HELYEN.</span>
+        <h1 class="display-3 fw-bold mt-3">A következő nagy<br><span class="gradient-text">élményed itt kezdődik.</span></h1>
+        <p class="lead text-white-50 mt-3">Koncertek, bulik és fesztiválok. Találd meg a programod, és foglald le a jegyed pár kattintással.</p>
+        <a href="#events" class="btn btn-primary btn-lg mt-3">Rendezvények felfedezése <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="col-lg-5"><div class="hero-ticket"><div class="ticket-top">A KÖVETKEZŐ EMLÉKED</div><div class="ticket-art">✦</div><div class="ticket-title">LIVE YOUR<br>BEST NIGHT</div><div class="ticket-bottom"><span>EVENTBOOK</span><span>★ ★ ★</span></div></div></div>
+    </div>
+  </div>
+</header>
+<main class="container py-5" id="events">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+    <div><div class="eyebrow text-primary">VÁLOGASS KEDVEDRE</div><h2 class="fw-bold mt-2 mb-0">Közelgő rendezvények</h2></div>
+    <div class="d-flex gap-2"><input id="search" class="form-control" placeholder="Keresés név vagy helyszín szerint"><button class="btn btn-dark" onclick="loadEvents()">Keresés</button></div>
+  </div>
+  <div class="d-flex flex-wrap gap-2 mb-4">
+    <button class="btn btn-sm btn-category active" onclick="setCategory('')">Mindegyik</button>
+    <button class="btn btn-sm btn-category" onclick="setCategory('Party')">Party</button>
+    <button class="btn btn-sm btn-category" onclick="setCategory('Koncert')">Koncert</button>
+    <button class="btn btn-sm btn-category" onclick="setCategory('Fesztivál')">Fesztivál</button>
+  </div>
+  <div id="alert"></div><div id="events-grid" class="row g-4"><div class="col-12 text-secondary">Rendezvények betöltése…</div></div>
+</main>
+<footer class="eb-footer"><div class="container d-flex flex-column flex-md-row justify-content-between gap-2"><span class="fw-bold">eventbook<span class="brand-dot">.</span></span><span>Találkozzunk a következő rendezvényen.</span><span>© 2026 EventBook Cloud · Oktatási projekt</span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script><script src="js/api.js"></script><script src="js/app.js"></script>
+</body></html>
